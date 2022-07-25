@@ -94,15 +94,56 @@ p{
 }
 button{
     width: 180px;
-    color: #000;
+    color:#FF00FF;
+    border: #FF00FF 0.15em solid;
     font-size: 12px;
     padding: 12px 0;
-    background: #fff;
-    border: 0;
-    border-radius: 20px;
+    background:black;
+    border-radius: 5em;
+   
     outline: none;
     margin-top: 30px;
     cursor: pointer;
+    text-shadow:0 0 0.25em currentColor;
+    box-shadow: inset 0 0 0.5em 0 var(#FF00FF),0  0 0.5em var(#FF00FF);
+    position: relative;
+
+}
+button::before{
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    background: #FF00FF;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: perspective(1em) rotateX(40deg) scale(1,0.35);
+    filter: blur(1.5em);
+    opacity: 0.5;
+}
+button:hover,
+button:focus{
+    background: #FF00FF;
+    color: black;
+    text-shadow: none;
+}
+button::after{
+    content: '';
+    position: absolute;
+    top: o;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(#FF00FF);
+    opacity: 0;
+    background-color: #FF00FF;
+    z-index: -1;
+    transition: opacity 100ms linear;
+}
+button:hover::after{
+    opacity: 3;
 }
 .card{
     width: 300px;
